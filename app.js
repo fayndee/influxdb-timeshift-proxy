@@ -31,7 +31,6 @@ const influx_url = URL.parse(e.INFLUXDB.match(/^https*:\/\//) ? e.INFLUXDB : `ht
 const influx_path = influx_url.pathname.match(/\/$/) ? influx_url.pathname : `${influx_url.pathname}/`;
 
 const proxy_options = {
-    preserveHostHdr: true,
     proxyReqPathResolver: influx.forward.bind(this, influx_path),
     userResDecorator: influx.intercept
 };
